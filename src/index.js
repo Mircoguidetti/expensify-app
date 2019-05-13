@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import IndexRouter from './routers/IndexRouter';
 
-const template = <p>This is running from webpack </p>
+import './styles/main.scss';
 
-ReactDOM.render(template, document.getElementById('app'));
+ReactDOM.render(<IndexRouter />, document.getElementById('app'));

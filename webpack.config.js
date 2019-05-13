@@ -10,14 +10,25 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules: [
-            {
-                test: /\.js/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+        rules: [{
+            test: /\.js/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader'
             }
-        ]
-    }
+        },{
+            test: /\.scss$/,
+            use: [
+                "style-loader", // creates style nodes from JS strings
+                "css-loader", // translates CSS into CommonJS
+                "sass-loader" // compiles Sass to CSS
+            ]
+        }]
+    },
+    devServer: {  // configuration for webpack-dev-server
+        contentBase: path.join(__dirname, 'public'), //source of static assets
+        historyApiFallback: true, // send all the endpoint to index.html
+        port: 8000, // port to run dev-server
+    
+    } 
 };
